@@ -90,5 +90,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     timerChoices[i].addEventListener("change", checkTimerChoice);
   }
 
+  settingsBtn.addEventListener("click", function () {
+    console.log("settings opened");
+  });
+
   checkTimerChoice();
 });
