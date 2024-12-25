@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const startBtn = document.getElementById("start");
   const resetBtn = document.getElementById("reset-btn");
   const settingsBtn = document.getElementById("settings-btn");
+  const timerText = document.getElementById("timer-text");
+
   let timer;
   let minutes = 25;
   let seconds = 0;
@@ -24,15 +26,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
       seconds -= 1;
     }
 
-    timerText = document.getElementById("timer-text");
-    const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
-      seconds
-    ).padStart(2, "0")}`;
-    timerText.textContent = formattedTime;
+    updateTimerText(minutes, seconds);
   }
 
   function startTimer() {
     timer = setInterval(updateTimer, 1000);
+  }
+
+  function updateTimerText(minutes, seconds) {
+    const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+      seconds
+    ).padStart(2, "0")}`;
+    timerText.textContent = formattedTime;
   }
 
   startBtn.addEventListener("click", function () {
@@ -49,15 +54,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   resetBtn.addEventListener("click", function () {
+    checkTimerChoice();
+  });
+
+  const timerChoices = document.getElementsByClassName("radio");
+
+  function resetTimer() {
     const startText = document.getElementById("start-text");
     startText.textContent = "Start";
     isStarted = false;
     clearInterval(timer);
-    minutes = 25;
-    seconds = 0;
-    const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
-      seconds
-    ).padStart(2, "0")}`;
-    timerText.textContent = formattedTime;
-  });
+  }
+
+  function checkTimerChoice() {
+    resetTimer();
+    if (document.getElementById("pomodoro").checked) {
+      clearInterval(timer);
+      minutes = 25;
+      seconds = 0;
+      updateTimerText(minutes, seconds);
+    } else if (document.getElementById("short-break").checked) {
+      clearInterval(timer);
+      minutes = 5;
+      seconds = 0;
+      updateTimerText(minutes, seconds);
+    } else if (document.getElementById("long-break").checked) {
+      clearInterval(timer);
+      minutes = 10;
+      seconds = 0;
+      updateTimerText(minutes, seconds);
+    }
+  }
+
+  for (var i = 0; i < timerChoices.length; i++) {
+    timerChoices[i].addEventListener("change", checkTimerChoice);
+  }
+
+  checkTimerChoice();
 });
