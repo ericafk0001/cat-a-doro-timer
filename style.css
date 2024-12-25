@@ -25,6 +25,12 @@ main {
   margin-top: 24px;
   font-size: 4.25rem;
   text-shadow: rgba(255, 255, 255, 0.9) 0px 0px 80px;
+  display: flex;
+  align-items: center;
+}
+
+#cat-title-img {
+  width: 125px;
 }
 
 #timer-container {
