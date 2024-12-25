@@ -12,6 +12,8 @@ body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: #121212;
   color: white;
+  overflow: hidden;
+  cursor: url("pusheen.png"), auto;
 }
 
 main {
@@ -19,6 +21,30 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+#container-container {
+  display: flex;
+  justify-content: center; /* Center all items */
+  width: 100%;
+}
+
+#timer-container {
+  text-align: center;
+  margin-top: 10vh;
+  width: 300px;
+}
+
+#left-container {
+  flex: 0 0 300px;
+  margin-right: auto;
+  padding: 10px;
+}
+
+#right-container {
+  flex: 0 0 300px;
+  margin-left: auto;
+  padding: 10px;
 }
 
 #header h1 {
@@ -31,11 +57,6 @@ main {
 
 #cat-title-img {
   width: 115px;
-}
-
-#timer-container {
-  text-align: center;
-  margin-top: 10vh;
 }
 
 #buttons {
@@ -85,11 +106,15 @@ main {
 }
 
 #timer-text {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
   margin-top: 0.5em;
   font-family: "Rubik", sans-serif;
   font-size: 6rem;
   color: #e4e5e6;
+}
+
+#quote {
+  margin-bottom: 2.5em;
 }
 
 #start {
