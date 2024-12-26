@@ -173,6 +173,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
     fetchCatImg();
   });
 
+  let startTime = Date.now();
+  let totalTime = 0; // total time
+
+  // Update the total time
+  function updateTime() {
+    const currentTime = Date.now();
+    totalTime += currentTime - startTime;
+    startTime = currentTime;
+    const hours = Math.floor(totalTime / 3600000);
+    const minutes = Math.floor((totalTime % 3600000) / 60000);
+    const seconds = ((totalTime % 60000) / 1000).toFixed(1); // Round seconds to 1 decimal place
+
+    document.getElementById(
+      "time-display"
+    ).textContent = `${hours}h, ${minutes}m, ${seconds}s`;
+  }
+
+  // Listen for tab focus/unfocus
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      updateTime();
+    } else {
+      startTime = Date.now(); // reset start time when tab is focused
+    }
+  });
+
+  // update time when the user leaves the page
+  window.addEventListener("beforeunload", function () {
+    updateTime();
+  });
+
   fetchCatImg();
   checkTimerChoice();
 });
