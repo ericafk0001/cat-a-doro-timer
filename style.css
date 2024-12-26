@@ -11,8 +11,9 @@
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   background-color: #121212;
+  height: 100%;
+  width: 100%;
   color: white;
-  overflow: hidden;
   cursor: url("pusheen.png"), auto;
 }
 
@@ -471,6 +472,8 @@ main {
   transition: background 0.3s;
   margin-top: 12px;
   margin-bottom: 4px;
+  min-width: var(--width); /* Ensure minimum width */
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .button::before {
