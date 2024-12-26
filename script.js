@@ -142,5 +142,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
+  //cat petter
+  let catPlacement = document.getElementById("cat-placement");
+
+  catPlacement.addEventListener("mouseover", function () {
+    catPlacement.src = "cat_pet_gif.gif";
+  });
+
+  catPlacement.addEventListener("mouseout", function () {
+    catPlacement.src = "cat_pet.png";
+  });
+
+  //fetch cat img
+  function fetchCatImg() {
+    fetch("https://api.thecatapi.com/v1/images/search")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const catImageUrl = data[0].url;
+
+        const catImage = document.getElementById("cat-image");
+        catImage.src = catImageUrl;
+        catImage.alt = "Random Cute Cat";
+      })
+      .catch((error) => console.error(error));
+  }
+
+  const reloadCatBtn = document.getElementById("reload-cat");
+  reloadCatBtn.addEventListener("click", function () {
+    fetchCatImg();
+  });
+
+  fetchCatImg();
   checkTimerChoice();
 });
