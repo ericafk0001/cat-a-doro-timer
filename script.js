@@ -94,34 +94,53 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log("settings opened");
   });
 
+  // create task
   document
     .getElementById("task-input")
     .addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         const input = event.target;
         const value = input.value.trim();
-
         if (value) {
           const newTask = document.createElement("div");
           newTask.className = "task";
           newTask.textContent = value;
+          // Add the click event listener to the new task
+          newTask.addEventListener("click", deleteTask);
           document.getElementById("left-container").appendChild(newTask);
-
           input.value = "";
+        } else {
+          alert("you didn't type anything!");
         }
       }
     });
 
+  function deleteTask(event) {
+    if (confirm("Are you sure you want to delete this task?")) {
+      event.target.remove();
+    }
+  }
+
+  // Add click listeners to existing tasks
   const tasks = document.getElementsByClassName("task");
+  Array.from(tasks).forEach((task) => {
+    task.addEventListener("click", deleteTask);
+  });
 
-  function deleteTask() {
-    const task = event.target; // The task element that was clicked
-    task.remove();
-  }
+  const noteBox = document.getElementById("note-box");
 
-  for (var i = 0; i < tasks.length; i++) {
-    tasks[i].addEventListener("click", deleteTask);
-  }
+  noteBox.addEventListener("change", function () {
+    const textValue = noteBox.value;
+    localStorage.setItem("savedText", textValue);
+    console.log("Text saved!");
+  });
+
+  window.addEventListener("load", () => {
+    const savedText = localStorage.getItem("savedText");
+    if (savedText !== null) {
+      noteBox.value = savedText;
+    }
+  });
 
   checkTimerChoice();
 });

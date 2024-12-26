@@ -41,11 +41,47 @@ main {
 #left-container {
   flex: 0 0 300px;
   margin-right: auto;
-  margin-left: 15px;
+}
+
+#left-todo {
   background-color: #282828;
+  margin-left: 15px;
   border-radius: 16px;
   margin-top: 20px;
   padding: 8px;
+  height: 69vh;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#left-notes {
+  background-color: #282828;
+  margin-left: 15px;
+  border-radius: 16px;
+  margin-top: 20px;
+  padding: 8px;
+  height: 30vh;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#note-box {
+  resize: none;
+  width: 100%;
+  flex: 1;
+  color: #fff;
+  font-size: 0.9rem;
+  background-color: #3f3f3f;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 8px;
 }
 
 #right-container {
