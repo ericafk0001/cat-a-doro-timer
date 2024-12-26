@@ -35,6 +35,7 @@ main {
   text-align: center;
   width: 300px;
   margin-top: 28vh;
+  margin-right: 15px;
 }
 
 #left-container {
@@ -67,7 +68,7 @@ main {
   background-color: #575757;
   margin-top: 5px;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px 5px;
   font-size: 1.25rem;
   transition: 0.15s all;
 }

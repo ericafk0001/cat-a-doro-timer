@@ -94,5 +94,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
     console.log("settings opened");
   });
 
+  document
+    .getElementById("task-input")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        const input = event.target;
+        const value = input.value.trim();
+
+        if (value) {
+          const newTask = document.createElement("div");
+          newTask.className = "task";
+          newTask.textContent = value;
+          document.getElementById("left-container").appendChild(newTask);
+
+          input.value = "";
+        }
+      }
+    });
+
+  const tasks = document.getElementsByClassName("task");
+
+  function deleteTask() {
+    const task = event.target; // The task element that was clicked
+    task.remove();
+  }
+
+  for (var i = 0; i < tasks.length; i++) {
+    tasks[i].addEventListener("click", deleteTask);
+  }
+
   checkTimerChoice();
 });
