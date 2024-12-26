@@ -3,9 +3,8 @@ const songs = [
   { title: "Vansire - Metamodernity", src: "music2.mp3" },
   { title: "Never Get Used To People - Life Letters", src: "music3.mp3" },
   { title: "Swaige - GET SILLY!!", src: "music4.mp3" },
-
+  { title: "Kanii - sins (let me in)", src: "music5.mp3" },
 ];
-// edit this array to add your own music
 
 let currentSong = 0;
 
@@ -22,8 +21,8 @@ function initMusic() {
   currentSong = Math.floor(Math.random() * songs.length);
 
   function updateart() {
-    art.src = `./img/${songs[currentSong].src.replace('.mp3', '.png')}`;
-    art.style.display = 'block';
+    art.src = `./img/${songs[currentSong].src.replace(".mp3", ".png")}`;
+    art.style.display = "block";
   }
 
   function music() {
@@ -38,7 +37,7 @@ function initMusic() {
       play.classList.remove("paused");
       skip.style.display = "none";
       info.textContent = "";
-      art.style.display = 'none';
+      art.style.display = "none";
     }
   }
 
@@ -58,7 +57,7 @@ function initMusic() {
 
   // init first source
   audio.src = `./music/${songs[currentSong].src}`;
-  art.style.display = 'none';
+  art.style.display = "none";
 
   play.addEventListener("click", music);
   skip.addEventListener("click", musicSkip);
