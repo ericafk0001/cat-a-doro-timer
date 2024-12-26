@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           newTask.textContent = value;
           // Add the click event listener to the new task
           newTask.addEventListener("click", deleteTask);
-          document.getElementById("left-container").appendChild(newTask);
+          document.getElementById("left-todo").appendChild(newTask);
           input.value = "";
         } else {
           alert("you didn't type anything!");
