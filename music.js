@@ -4,6 +4,7 @@ const songs = [
   { title: "Never Get Used To People - Life Letters", src: "music3.mp3" },
   { title: "Swaige - GET SILLY!!", src: "music4.mp3" },
   { title: "Kanii - sins (let me in)", src: "music5.mp3" },
+  { title: "Miaw meow meiw Meow", src: "music6.mp3" },
 ];
 
 let currentSong = 0;
