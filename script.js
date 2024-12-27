@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   settingsBtn.addEventListener("click", function () {
     console.log("settings opened");
+    alert("sorry, this is an work in progress. explore everything else!");
   });
 
   // create task
