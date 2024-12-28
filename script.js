@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   const startBtn = document.getElementById("start");
   const resetBtn = document.getElementById("reset-btn");
-  const settingsBtn = document.getElementById("settings-btn");
-  const settingsDiv = document.getElementById("settings-container");
   const timerText = document.getElementById("timer-text");
 
   let timer;
@@ -90,11 +88,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   for (var i = 0; i < timerChoices.length; i++) {
     timerChoices[i].addEventListener("change", checkTimerChoice);
   }
-
-  settingsBtn.addEventListener("click", function () {
-    console.log("settings wip");
-    settingsDiv.style.display = "block";
-  });
 
   // create task
   document
@@ -204,6 +197,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // update time when the user leaves the page
   window.addEventListener("beforeunload", function () {
     updateTime();
+  });
+
+  //settings
+  const settingsBtn = document.getElementById("settings-btn");
+  const settingsDiv = document.getElementById("settings-container");
+  const settingsSide = document.getElementById("settings-side");
+
+  const settingsCloseBtn = document.getElementById("close-settings-btn");
+  const hamburgerClose = document.getElementById("close-settings-side");
+  const hamburger = document.getElementById("check");
+
+  settingsBtn.addEventListener("click", function () {
+    console.log("settings wip");
+    settingsDiv.style.display = "block";
+  });
+
+  settingsCloseBtn.addEventListener("click", function () {
+    settingsDiv.style.display = "none";
+  });
+
+  hamburger.addEventListener("click", function () {
+    settingsSide.style.display = "flex";
+  });
+
+  hamburgerClose.addEventListener("click", function () {
+    settingsSide.style.display = "none";
   });
 
   fetchCatImg();

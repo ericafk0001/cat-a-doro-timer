@@ -30,12 +30,20 @@
           <button id="close-settings-btn">
             <i class="fa-solid fa-xmark"></i>
           </button>
-          <div id="settings-side">
+          <div id="hamburger">
+            <label class="bar" for="check" id="check">
+              <span class="top"></span>
+              <span class="middle"></span>
+              <span class="bottom"></span>
+            </label>
+          </div>
+          <div id="settings-side" style="display: none">
             <button id="timer-settings">Timer</button>
             <button id="look-settings">Look</button>
             <button id="storage-settings">Storage</button>
             <button id="other-settings">Other</button>
             <button id="about-settings">About</button>
+            <button id="close-settings-side">Close</button>
           </div>
         </div>
         <div id="settings-main">
@@ -43,8 +51,9 @@
             <label for="pomodoro-setting">Pomodoro Time:</label>
             <input
               id="pomodoro-setting"
-              type="text"
+              type="number"
               placeholder="Enter Minutes.."
+              min="1"
             />
           </div>
         </div>
