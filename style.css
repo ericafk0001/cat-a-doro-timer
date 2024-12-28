@@ -25,6 +25,35 @@ main {
   height: 100%;
 }
 
+#settings-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 480px;
+  height: 380px;
+  border-radius: 16px;
+  background: #212121;
+  z-index: 69;
+}
+
+#settings-container h2 {
+  margin-top: 12px;
+  font-size: 2rem;
+}
+
+#settings-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#close-settings-btn {
+  position: absolute;
+  right: 0;
+}
+
 #container-container {
   display: flex;
   justify-content: center;
