@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const startBtn = document.getElementById("start");
   const resetBtn = document.getElementById("reset-btn");
   const settingsBtn = document.getElementById("settings-btn");
+  const settingsDiv = document.getElementById("settings-container");
   const timerText = document.getElementById("timer-text");
 
   let timer;
@@ -91,8 +92,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   settingsBtn.addEventListener("click", function () {
-    console.log("settings opened");
-    alert("sorry, this is an work in progress. explore everything else!");
+    console.log("settings wip");
+    settingsDiv.style.display = "block";
   });
 
   // create task
