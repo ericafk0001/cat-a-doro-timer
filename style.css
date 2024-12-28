@@ -31,10 +31,11 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 480px;
-  height: 380px;
+  width: 560px;
+  height: 420px;
   border-radius: 16px;
   background: #212121;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.63);
   z-index: 69;
 }
 
@@ -51,11 +52,43 @@ main {
 
 #close-settings-btn {
   position: absolute;
-  right: 0;
+  right: 5px;
+  top: 5px;
+  width: 24px;
+  height: 24px;
+  border-style: none;
+  border-radius: 100%;
+  background-color: rgb(201, 51, 31);
+  color: rgb(241, 241, 241);
+  transition: 0.2s all;
+}
+
+#close-settings-btn:hover {
+  opacity: 0.5;
 }
 
 #settings-side {
-  background-color: #575757;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  position: absolute;
+  left: 5px;
+}
+
+#settings-side button {
+  border-style: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 20px;
+  color: white;
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.25s all;
+}
+
+#settings-side button:hover {
+  border-bottom: 3px solid #575757;
 }
 
 #container-container {

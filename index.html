@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cat-O-Doro Timer</title>
+    <title>Cat-O-Doro</title>
     <script
       src="https://kit.fontawesome.com/480c99c053.js"
       crossorigin="anonymous"
@@ -23,24 +23,22 @@
         </h1>
       </div>
 
-      <div id="settings-container" style="display: none">
+      <div id="settings-container">
+        <!--style="display: none"-->
         <div id="settings-header">
           <h2>Settings</h2>
           <button id="close-settings-btn">
             <i class="fa-solid fa-xmark"></i>
           </button>
+          <div id="settings-side">
+            <button id="timer-settings">Timer</button>
+            <button id="look-settings">Look</button>
+            <button id="storage-settings">Storage</button>
+            <button id="other-settings">Other</button>
+            <button id="about-settings">About</button>
+          </div>
         </div>
         <div id="settings-main">
-          <div id="settings-side">
-            <input type="radio" value="timer" id="timer" />
-            <label for="timer">Timer</label>
-            <input type="radio" value="theme" id="theme" />
-            <label for="theme">Theme</label>
-            <input type="radio" value="storage" id="storage" />
-            <label for="storage">Storage</label>
-            <input type="radio" value="other" id="other" />
-            <label for="other">Other</label>
-          </div>
           <div id="settings-page">
             <label for="pomodoro-setting">Pomodoro Time:</label>
             <input
