@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (minutes === 0 && seconds === 0) {
       const doneSound = document.getElementById("alarm");
       clearInterval(timer);
-      console.log("Timer finished!");
       doneSound.play();
       return;
     }
@@ -63,26 +62,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     startText.textContent = "Start";
     isStarted = false;
     clearInterval(timer);
-  }
-
-  function checkTimerChoice() {
-    resetTimer();
-    if (document.getElementById("pomodoro").checked) {
-      clearInterval(timer);
-      minutes = 25;
-      seconds = 0;
-      updateTimerText(minutes, seconds);
-    } else if (document.getElementById("short-break").checked) {
-      clearInterval(timer);
-      minutes = 5;
-      seconds = 0;
-      updateTimerText(minutes, seconds);
-    } else if (document.getElementById("long-break").checked) {
-      clearInterval(timer);
-      minutes = 10;
-      seconds = 0;
-      updateTimerText(minutes, seconds);
-    }
+    seconds = 0;
   }
 
   for (var i = 0; i < timerChoices.length; i++) {
@@ -127,7 +107,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   noteBox.addEventListener("change", function () {
     const textValue = noteBox.value;
     localStorage.setItem("savedText", textValue);
-    console.log("Text saved!");
   });
 
   window.addEventListener("load", () => {
@@ -153,7 +132,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     fetch("https://api.thecatapi.com/v1/images/search")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const catImageUrl = data[0].url;
 
         const catImage = document.getElementById("cat-image");
@@ -213,6 +191,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   settingsCloseBtn.addEventListener("click", function () {
+    saveSettings();
+
     settingsDiv.classList.remove("active");
     const Toast = Swal.mixin({
       toast: true,
@@ -269,16 +249,161 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   //settings side TIMER
-  const saveTimerState = document.getElementById("save-timers");
 
-  saveTimerState.addEventListener("change", () => {
-    if (saveTimerState.checked) {
-      console.log("saveTimerState is checked!");
+  function saveSettings() {
+    const workInterval = document.getElementById("work-interval").value || 25;
+    const shortBreakInterval =
+      document.getElementById("short-interval").value || 5;
+    const longBreakInterval =
+      document.getElementById("long-interval").value || 10;
+    const saveSettingsCheckbox = document.getElementById("save-timers").checked;
+
+    if (saveSettingsCheckbox) {
+      localStorage.setItem("workInterval", workInterval);
+      localStorage.setItem("shortBreakInterval", shortBreakInterval);
+      localStorage.setItem("longBreakInterval", longBreakInterval);
+      localStorage.setItem("saveSettings", "true");
+
+      // Update timer text immediately based on current selection
+      checkTimerChoice();
     } else {
-      console.log("saveTimerState is unchecked!");
+      // Clear saved settings
+      localStorage.removeItem("workInterval");
+      localStorage.removeItem("shortBreakInterval");
+      localStorage.removeItem("longBreakInterval");
+      localStorage.setItem("saveSettings", "false");
+
+      // Reset input values to defaults
+      document.getElementById("work-interval").value = "";
+      document.getElementById("short-interval").value = "";
+      document.getElementById("long-interval").value = "";
+
+      // Reset placeholders to defaults
+      document.getElementById("work-interval").placeholder = "25 Minutes";
+      document.getElementById("short-interval").placeholder = "5 Minutes";
+      document.getElementById("long-interval").placeholder = "10 Minutes";
+
+      // Reset timer to default values
+      minutes = 25;
+      updateTimerText(minutes, seconds);
+    }
+
+    // Show save confirmation
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: saveSettingsCheckbox
+        ? "Settings Saved"
+        : "Settings Reset to Default",
+    });
+  }
+
+  const saveTimerCheckbox = document.getElementById("save-timers");
+  saveTimerCheckbox.addEventListener("change", function () {
+    if (!this.checked) {
+      Swal.fire({
+        title: "Clear Saved Settings?",
+        text: "This will reset all timer values to default",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, clear settings",
+        cancelButtonText: "No, keep settings",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          saveSettings();
+        } else {
+          this.checked = true;
+        }
+      });
+    } else {
+      // if turning on saving, save current settings
+      saveSettings();
     }
   });
 
+  function loadSettings() {
+    const saveSettings = localStorage.getItem("saveSettings");
+    const saveTimersCheckbox = document.getElementById("save-timers");
+
+    // Set checkbox state (default to checked if no setting exists)
+    saveTimersCheckbox.checked =
+      saveSettings === null ? true : saveSettings === "true";
+
+    const workIntervalInput = document.getElementById("work-interval");
+    const shortBreakInput = document.getElementById("short-interval");
+    const longBreakInput = document.getElementById("long-interval");
+
+    if (saveTimersCheckbox.checked) {
+      const savedWorkInterval = localStorage.getItem("workInterval");
+      const savedShortBreakInterval =
+        localStorage.getItem("shortBreakInterval");
+      const savedLongBreakInterval = localStorage.getItem("longBreakInterval");
+
+      // Set input values and placeholders if saved values exist
+      if (savedWorkInterval) {
+        workIntervalInput.value = savedWorkInterval;
+        workIntervalInput.placeholder = savedWorkInterval + " Minutes";
+      }
+
+      if (savedShortBreakInterval) {
+        shortBreakInput.value = savedShortBreakInterval;
+        shortBreakInput.placeholder = savedShortBreakInterval + " Minutes";
+      }
+
+      if (savedLongBreakInterval) {
+        longBreakInput.value = savedLongBreakInterval;
+        longBreakInput.placeholder = savedLongBreakInterval + " Minutes";
+      }
+    } else {
+      // reset default placeholders
+      workIntervalInput.placeholder = "25 Minutes";
+      shortBreakInput.placeholder = "5 Minutes";
+      longBreakInput.placeholder = "10 Minutes";
+
+      // clear input values
+      workIntervalInput.value = "";
+      shortBreakInput.value = "";
+      longBreakInput.value = "";
+    }
+  }
+
+  function checkTimerChoice() {
+    resetTimer();
+
+    const workInterval = localStorage.getItem("workInterval") || 25;
+    const shortBreakInterval = localStorage.getItem("shortBreakInterval") || 5;
+    const longBreakInterval = localStorage.getItem("longBreakInterval") || 10;
+
+    if (document.getElementById("pomodoro").checked) {
+      minutes = parseInt(workInterval, 10);
+    } else if (document.getElementById("short-break").checked) {
+      minutes = parseInt(shortBreakInterval, 10);
+    } else if (document.getElementById("long-break").checked) {
+      minutes = parseInt(longBreakInterval, 10);
+    }
+
+    updateTimerText(minutes, seconds);
+  }
+
+  // checkbox is checked by default
+  if (localStorage.getItem("saveSettings") === null) {
+    localStorage.setItem("saveSettings", "true");
+  }
+
+  loadSettings();
   fetchCatImg();
   checkTimerChoice();
 });
