@@ -57,3 +57,5 @@ PS. will be adding the ability to have custom time controls, themes, etc in next
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+
+Music player credits to 3kh0
