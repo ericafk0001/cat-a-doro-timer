@@ -102,6 +102,33 @@
               <p>Hello World!</p>
             </div>
 
+            <!--other settings-->
+            <!-- Add this inside the settings-page div, after the other settings content divs -->
+            <div
+              id="other-settings-content"
+              class="setting-content"
+              style="display: none"
+            >
+              <div id="quote-settings">
+                <label for="custom-quote"
+                  >Custom Quote (leave empty for default):</label
+                >
+                <textarea
+                  id="custom-quote"
+                  placeholder="Cats over dogs all day.."
+                  rows="3"
+                  class="textareaElem"
+                ></textarea>
+                <label for="quote-author">Quote Author (optional):</label>
+                <input
+                  type="text"
+                  id="quote-author"
+                  class="textareaElem"
+                  placeholder="Enter the author's name"
+                />
+              </div>
+            </div>
+
             <!--about settings-->
             <div
               id="about-settings-content"
@@ -143,6 +170,7 @@
             <h3>Personal Notes</h3>
             <textarea
               id="note-box"
+              class="textareaElem"
               placeholder="meow meow meow meow, meow meow meow meow meow.."
             ></textarea>
           </div>

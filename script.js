@@ -190,9 +190,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     settingsDiv.classList.add("active");
   });
 
+  //close21
   settingsCloseBtn.addEventListener("click", function () {
     saveSettings();
-
+    saveQuoteSettings();
     settingsDiv.classList.remove("active");
     const Toast = Swal.mixin({
       toast: true,
@@ -403,7 +404,59 @@ document.addEventListener("DOMContentLoaded", (event) => {
     localStorage.setItem("saveSettings", "true");
   }
 
+  //other settings
+  const customQuoteText = document.getElementById("custom-quote");
+  const quoteAuthorInput = document.getElementById("quote-author");
+  const quoteDisplay = document.getElementById("quote");
+
+  const defaultQuote =
+    "\"Your time is limited, so don't waste it living someone else's life\" - Steve Jobs";
+
+  // Load quote settings
+  function loadQuoteSettings() {
+    const savedQuote = localStorage.getItem("customQuote");
+    const savedAuthor = localStorage.getItem("quoteAuthor");
+
+    if (savedQuote) {
+      customQuoteText.value = savedQuote;
+      quoteAuthorInput.value = savedAuthor || "";
+      updateQuoteDisplay();
+    } else {
+      quoteDisplay.textContent = defaultQuote;
+    }
+  }
+
+  function saveQuoteSettings() {
+    const quote = customQuoteText.value.trim();
+    const author = quoteAuthorInput.value.trim();
+
+    if (quote) {
+      localStorage.setItem("customQuote", quote);
+      localStorage.setItem("quoteAuthor", author);
+    } else {
+      localStorage.removeItem("customQuote");
+      localStorage.removeItem("quoteAuthor");
+    }
+
+    updateQuoteDisplay();
+  }
+
+  function updateQuoteDisplay() {
+    const quote = customQuoteText.value.trim();
+    const author = quoteAuthorInput.value.trim();
+
+    if (quote) {
+      quoteDisplay.textContent = `"${quote}"${author ? ` - ${author}` : ""}`;
+    } else {
+      quoteDisplay.textContent = defaultQuote;
+    }
+  }
+
+  customQuoteText.addEventListener("input", saveQuoteSettings);
+  quoteAuthorInput.addEventListener("input", saveQuoteSettings);
+
   loadSettings();
+  loadQuoteSettings();
   fetchCatImg();
   checkTimerChoice();
 });
