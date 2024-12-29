@@ -27,8 +27,8 @@ main {
 }
 
 #settings-container {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: -100%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -37,19 +37,44 @@ main {
   border-radius: 16px;
   background: #212121;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.63);
-  z-index: 69;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 
-#settings-container h2 {
-  margin-top: 12px;
-  margin-bottom: 12px;
-  font-size: 2rem;
+#settings-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#settings-container.active {
+  top: 50%;
+  opacity: 1;
+}
+
+#settings-container.active::before {
+  opacity: 1;
 }
 
 #settings-header {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+#settings-header h2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 2rem;
 }
 
 #close-settings-btn {
@@ -72,10 +97,11 @@ main {
 #settings-side {
   display: flex;
   flex-direction: column;
-  background-color: transparent;
   position: absolute;
   left: 0;
+  height: 100%;
   background-color: #282828;
+  transition: all 0.3s ease-in-out;
 }
 
 #settings-side button {

@@ -209,12 +209,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const hamburger = document.getElementById("check");
 
   settingsBtn.addEventListener("click", function () {
-    console.log("settings wip");
-    settingsDiv.style.display = "block";
+    settingsDiv.classList.add("active");
   });
 
   settingsCloseBtn.addEventListener("click", function () {
-    settingsDiv.style.display = "none";
+    settingsDiv.classList.remove("active");
   });
 
   hamburger.addEventListener("click", function () {
