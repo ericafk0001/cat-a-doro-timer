@@ -253,6 +253,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 
+  //settings side TIMER
+  const saveTimerState = document.getElementById("save-timers");
+
+  saveTimerState.addEventListener("change", () => {
+    if (saveTimerState.checked) {
+      console.log("saveTimerState is checked!");
+    } else {
+      console.log("saveTimerState is unchecked!");
+    }
+  });
+
   fetchCatImg();
   checkTimerChoice();
 });
