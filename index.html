@@ -48,13 +48,37 @@
         </div>
         <div id="settings-main">
           <div id="settings-page">
-            <label for="pomodoro-setting">Pomodoro Time:</label>
-            <input
-              id="pomodoro-setting"
-              type="number"
-              placeholder="Enter Minutes.."
-              min="1"
-            />
+            <div id="pomodoro-settings-page">
+              <div id="pomodoro-settings-options">
+                <div class="group">
+                  <label for="pomodoro-setting">Pomodoro Time:</label>
+                  <input
+                    id="pomodoro-setting"
+                    class="number-input"
+                    type="number"
+                    placeholder="25 Minutes"
+                  />
+                </div>
+                <div class="group">
+                  <label for="short-setting">Short Break Time</label>
+                  <input
+                    id="short-setting"
+                    class="number-input"
+                    type="number"
+                    placeholder="5 Minutes"
+                  />
+                </div>
+                <div class="group">
+                  <label for="long-setting">Long Break Time</label>
+                  <input
+                    id="long-setting"
+                    class="number-input"
+                    type="number"
+                    placeholder="10 Minutes"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

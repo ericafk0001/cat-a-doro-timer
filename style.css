@@ -129,6 +129,20 @@ main {
   background-color: rgb(194, 61, 61) !important;
 }
 
+#pomodoro-settings-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#pomodoro-settings-options {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 0 12px;
+}
+
 #container-container {
   display: flex;
   justify-content: center;
@@ -747,4 +761,34 @@ input[type]:checked ~ span.bottom {
 input[type]:checked ~ span.middle {
   transform: translateX(-10px);
   opacity: 0;
+}
+
+.group {
+  line-height: 30px;
+  max-width: 200px;
+}
+
+.number-input {
+  width: 100%;
+  height: 45px;
+  line-height: 30px;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  background-color: #3f3f3f;
+  color: #fffffffb;
+  transition: 0.5s ease;
+}
+
+.number-input::placeholder {
+  color: #777777;
+}
+
+.number-input:focus,
+input:hover {
+  outline: none;
+  border-color: rgba(129, 140, 248);
+  background-color: #282828;
+  box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
 }
