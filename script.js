@@ -224,6 +224,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
     settingsSide.style.display = "none";
   });
 
+  //settings SIDE-BAR
+  const timerElements = [
+    "timer-settings",
+    "look-settings",
+    "storage-settings",
+    "other-settings",
+    "about-settings",
+  ];
+
+  timerElements.forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.addEventListener("click", function () {
+        element.style.display = "block";
+      });
+    }
+  });
+
   fetchCatImg();
   checkTimerChoice();
 });
