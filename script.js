@@ -233,11 +233,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     "about-settings",
   ];
 
+  function hideAllSettings() {
+    const settingDivs = document.querySelectorAll(".setting-content");
+    settingDivs.forEach((div) => {
+      div.style.display = "none";
+    });
+  }
+
   timerElements.forEach((id) => {
     const element = document.getElementById(id);
     if (element) {
       element.addEventListener("click", function () {
-        element.style.display = "block";
+        hideAllSettings(); // Hide all settings divs
+        const correspondingDiv = document.getElementById(`${id}-content`); // Assuming each div has an ID like 'timer-settings-content'
+        if (correspondingDiv) {
+          correspondingDiv.style.display = "flex";
+        }
       });
     }
   });
