@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //load tasks
   window.addEventListener("load", () => {
     loadSwitchState();
+    loadNoteState();
     loadSettings();
     loadQuoteSettings();
     checkTimerChoice();
@@ -146,10 +147,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       document.getElementById("left-todo").appendChild(newTask);
     });
 
+    //loader
     const loader = document.querySelector(".loader-container");
     setTimeout(() => {
       loader.classList.add("hide-loader");
-    }, 300);
+    }, 350);
   });
 
   const saveSwitch = document.getElementById("save-todos");
@@ -166,10 +168,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("save-todos").checked = savedState === "true";
   }
 
-  // Add click listeners to existing tasks
-  const tasks = document.getElementsByClassName("task");
-  Array.from(tasks).forEach((task) => {
-    task.addEventListener("click", deleteTask);
+  const noteSwitch = document.getElementById("save-notes");
+  noteSwitch.addEventListener("change", function () {
+    localStorage.setItem("saveNotesChecked", this.checked);
+    if (!this.checked) {
+      localStorage.removeItem("notes");
+    }
   });
 
   const noteBox = document.getElementById("note-box");
@@ -179,11 +183,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
     localStorage.setItem("savedText", textValue);
   });
 
-  window.addEventListener("load", () => {
-    const savedText = localStorage.getItem("savedText");
-    if (savedText !== null) {
-      noteBox.value = savedText;
+  function loadNoteState() {
+    const savedState = localStorage.getItem("saveNotesChecked");
+    document.getElementById("save-notes").checked = savedState === "true";
+
+    if (savedState === "true") {
+      const savedText = localStorage.getItem("savedText");
+      if (savedText !== null) {
+        noteBox.value = savedText;
+      }
+    } else {
+      localStorage.setItem("savedText", "");
+      noteBox.value = "";
     }
+  }
+
+  // Add click listeners to existing tasks
+  const tasks = document.getElementsByClassName("task");
+  Array.from(tasks).forEach((task) => {
+    task.addEventListener("click", deleteTask);
   });
 
   //cat petter
