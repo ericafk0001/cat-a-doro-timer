@@ -6,6 +6,8 @@ const songs = [
   { title: "Kanii - sins (let me in)", src: "music5.mp3" },
   { title: "Miaw meow meiw Meow", src: "music6.mp3" },
   { title: "Drake - One Dance", src: "music7.mp3" },
+  { title: "Katy Perry - California Gurls", src: "music8.mp3" },
+  { title: "ROSE & Bruno Mars - APT.", src: "music9.mp3" },
 ];
 
 let currentSong = 0;
