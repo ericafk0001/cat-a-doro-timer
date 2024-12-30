@@ -88,11 +88,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
           // Deselect the input box
           input.blur();
 
-          const existingTodos = JSON.parse(
-            localStorage.getItem("todos") || "[]"
-          );
-          existingTodos.push(newTask.textContent);
-          localStorage.setItem("todos", JSON.stringify(existingTodos));
+          const saveEnabled = document.getElementById("save-todos").checked;
+          if (saveEnabled) {
+            const existingTodos = JSON.parse(
+              localStorage.getItem("todos") || "[]"
+            );
+            existingTodos.push(newTask.textContent);
+            localStorage.setItem("todos", JSON.stringify(existingTodos));
+          }
         } else {
           const intervalId = setInterval(() => {
             Swal.fire({
@@ -132,6 +135,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //load tasks
   window.addEventListener("load", () => {
+    if (localStorage.getItem("saveTodosEnabled") === null) {
+      localStorage.setItem("saveTodosEnabled", "true");
+    }
+    if (localStorage.getItem("saveNotesChecked") === null) {
+      localStorage.setItem("saveNotesChecked", "true");
+    }
+
     loadSwitchState();
     loadNoteState();
     loadSettings();
@@ -145,6 +155,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const newTask = document.createElement("div");
       newTask.className = "task";
       newTask.textContent = todoText;
+      newTask.addEventListener("click", deleteTask);
       document.getElementById("left-todo").appendChild(newTask);
     });
 
@@ -159,8 +170,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
   saveSwitch.addEventListener("change", function () {
     localStorage.setItem("saveTodosEnabled", this.checked);
     if (!this.checked) {
-      // Clear saved todos if disabled
       localStorage.removeItem("todos");
+      Swal.fire({
+        toast: true,
+        position: "bottom-end",
+        icon: "info",
+        title: "To-do tasks will not be saved",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } else {
+      Swal.fire({
+        toast: true,
+        position: "bottom-end",
+        icon: "success",
+        title: "To-do tasks will be saved",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   });
 
@@ -174,6 +201,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
     localStorage.setItem("saveNotesChecked", this.checked);
     if (!this.checked) {
       localStorage.removeItem("notes");
+      Swal.fire({
+        toast: true,
+        position: "bottom-end",
+        icon: "info",
+        title: "Personal notes will not be saved",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } else {
+      Swal.fire({
+        toast: true,
+        position: "bottom-end",
+        icon: "success",
+        title: "Personal notes will be saved",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   });
 
@@ -394,8 +438,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     Toast.fire({
       icon: "success",
       title: saveSettingsCheckbox
-        ? "Settings Saved"
-        : "Settings Reset to Default",
+        ? "Custom Times Saved"
+        : "Custom Times Reseted",
     });
   }
 
@@ -552,6 +596,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     localStorage.setItem("minimalMode", isMinimal);
+
+    Swal.fire({
+      toast: true,
+      position: "bottom-end",
+      icon: "info",
+      title: isMinimal ? "Minimal mode enabled" : "Minimal mode disabled",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   }
 
   function loadMinimalMode() {

@@ -172,10 +172,16 @@ main {
   padding: 0 12px;
 }
 
+#save-todos-div {
+  margin-top: 15px;
+}
+
 #minimal-mode-div {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 .storage-class {
