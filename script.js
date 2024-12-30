@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loadQuoteSettings();
     checkTimerChoice();
     fetchCatImg();
+    loadMinimalMode();
 
     const todos = JSON.parse(localStorage.getItem("todos") || "[]");
     todos.forEach((todoText) => {
@@ -539,6 +540,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
       quoteDisplay.textContent = defaultQuote;
     }
   }
+
+  function toggleMinimalMode(event) {
+    const isMinimal = event.target.checked;
+    const containersToHide = document.querySelectorAll(
+      "#left-container, #right-container, #settings-container"
+    );
+
+    containersToHide.forEach((container) => {
+      container.style.display = isMinimal ? "none" : "block";
+    });
+
+    localStorage.setItem("minimalMode", isMinimal);
+  }
+
+  function loadMinimalMode() {
+    const minimalMode = localStorage.getItem("minimalMode") === "true";
+    const toggle = document.getElementById("minimal-mode-toggle");
+    toggle.checked = minimalMode;
+
+    if (minimalMode) {
+      const containersToHide = document.querySelectorAll(
+        "#left-container, #right-container, #settings-container"
+      );
+      containersToHide.forEach((container) => {
+        container.style.display = "none";
+      });
+    }
+  }
+
+  // Add event listener
+  document
+    .getElementById("minimal-mode-toggle")
+    .addEventListener("change", toggleMinimalMode);
 
   customQuoteText.addEventListener("input", saveQuoteSettings);
   quoteAuthorInput.addEventListener("input", saveQuoteSettings);

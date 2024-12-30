@@ -46,6 +46,7 @@ main {
 }
 
 #settings-container {
+  display: block !important;
   position: fixed;
   top: -100%;
   left: 50%;
@@ -148,6 +149,10 @@ main {
   background-color: rgb(194, 61, 61) !important;
 }
 
+#loader-container {
+  display: block !important;
+}
+
 .setting-content {
   display: flex;
   flex-direction: column;
@@ -165,6 +170,12 @@ main {
 
 #look-settings-content {
   padding: 0 12px;
+}
+
+#minimal-mode-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .storage-class {
@@ -201,6 +212,7 @@ input {
   width: 300px;
   margin-top: 28vh;
   margin-right: 15px;
+  display: block !important;
 }
 
 #left-container {
