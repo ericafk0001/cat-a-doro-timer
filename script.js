@@ -70,6 +70,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // create task
+  const todos = [];
+  localStorage.setItem("todos", JSON.stringify(todos));
+
   document
     .getElementById("task-input")
     .addEventListener("keydown", function (event) {
@@ -80,12 +83,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
           const newTask = document.createElement("div");
           newTask.className = "task";
           newTask.textContent = value;
-          // Add the click event listener to the new task
           newTask.addEventListener("click", deleteTask);
           document.getElementById("left-todo").appendChild(newTask);
           input.value = "";
+
+          // Deselect the input box
+          input.blur();
+
+          const existingTodos = JSON.parse(
+            localStorage.getItem("todos") || "[]"
+          );
+          existingTodos.push(newTask.textContent);
+          localStorage.setItem("todos", JSON.stringify(existingTodos));
         } else {
-          alert("you didn't type anything!");
+          Swal.fire({
+            icon: "warning",
+            title: "Oops...",
+            text: "You didn't type anything!",
+            confirmButtonText: "OK",
+          }).then(() => {});
         }
       }
     });
@@ -457,6 +473,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   loadSettings();
   loadQuoteSettings();
-  fetchCatImg();
   checkTimerChoice();
+  fetchCatImg();
 });
