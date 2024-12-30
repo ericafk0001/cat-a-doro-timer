@@ -10,8 +10,8 @@ A fun, cat-themed Pomodoro timer that helps you stay productive with timed work 
 - **Cat Image Fetcher**: Click the button to fetch a random cat image from TheCatAPI.
 - **Notes & Local Storage**: Save your notes locally for later reference.
 - **Total Time Tracker**: Tracks the total time you've spent on tasks.
-
-PS. will be adding the ability to have custom time controls, themes, etc in next update!
+- **Customizability**: Able to customize intervals, look, storage, etc.
+- **Minimal Mode**: Enabling this will let you focus on the timer itself, if you find the cats distracting.
 
 ## Demo
 
@@ -48,9 +48,8 @@ PS. will be adding the ability to have custom time controls, themes, etc in next
 
 ## Features to Add
 
-- Timer duration customization
-- Dark mode toggle
-- More cat animations and interactions
+- Themes
+- Even more settings!
 
 ## License
 
