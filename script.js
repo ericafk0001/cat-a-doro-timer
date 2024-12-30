@@ -96,12 +96,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
           existingTodos.push(newTask.textContent);
           localStorage.setItem("todos", JSON.stringify(existingTodos));
         } else {
-          Swal.fire({
-            icon: "warning",
-            title: "Oops...",
-            text: "You didn't type anything!",
-            confirmButtonText: "OK",
-          }).then(() => {});
+          const intervalId = setInterval(() => {
+            Swal.fire({
+              icon: "warning",
+              title: "Oops...",
+              text: "You didn't type anything!",
+              confirmButtonText: "OK",
+            }).then(() => {
+              clearInterval(intervalId);
+            });
+          }, 10);
         }
       }
     });
