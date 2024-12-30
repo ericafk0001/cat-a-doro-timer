@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="music.css" />
   </head>
   <body>
+    <div class="loader-container">
+      <div class="banter-loader">
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+        <div class="banter-loader__box"></div>
+      </div>
+    </div>
+
     <audio src="alarm.mp3" id="alarm"></audio>
     <main>
       <div id="header">
@@ -102,8 +116,40 @@
               <p>Hello World!</p>
             </div>
 
+            <!--storage settings-->
+            <div
+              id="storage-settings-content"
+              class="setting-content"
+              style="display: none"
+            >
+              <div id="save-todos-div" class="storage-class">
+                <label for="save-todos">Save To-Do Tasks </label>
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="save-todos"
+                    value="save-todos"
+                    checked
+                  />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div id="save-notes-div" class="storage-class">
+                <label for="save-notes">Save Personal Notes</label>
+                <label class="switch">
+                  <input
+                    type="checkbox"
+                    id="save-notes"
+                    value="save-notes"
+                    checked
+                  />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
             <!--other settings-->
-            <!-- Add this inside the settings-page div, after the other settings content divs -->
             <div
               id="other-settings-content"
               class="setting-content"

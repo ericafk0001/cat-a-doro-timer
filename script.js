@@ -70,8 +70,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   // create task
-  const todos = [];
-  localStorage.setItem("todos", JSON.stringify(todos));
 
   document
     .getElementById("task-input")
@@ -111,9 +109,61 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
   function deleteTask(event) {
-    if (confirm("Are you sure you want to delete this task?")) {
-      event.target.remove();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to recover this task!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        event.target.remove();
+
+        const todoText = event.target.textContent;
+        const existingTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+        const updatedTodos = existingTodos.filter((todo) => todo !== todoText);
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
+
+        Swal.fire("Deleted!", "Your task has been deleted.", "success");
+      }
+    });
+  }
+
+  //load tasks
+  window.addEventListener("load", () => {
+    loadSwitchState();
+    loadSettings();
+    loadQuoteSettings();
+    checkTimerChoice();
+    fetchCatImg();
+
+    const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+    todos.forEach((todoText) => {
+      const newTask = document.createElement("div");
+      newTask.className = "task";
+      newTask.textContent = todoText;
+      document.getElementById("left-todo").appendChild(newTask);
+    });
+
+    const loader = document.querySelector(".loader-container");
+    setTimeout(() => {
+      loader.classList.add("hide-loader");
+    }, 300);
+  });
+
+  const saveSwitch = document.getElementById("save-todos");
+  saveSwitch.addEventListener("change", function () {
+    localStorage.setItem("saveTodosEnabled", this.checked);
+    if (!this.checked) {
+      // Clear saved todos if disabled
+      localStorage.removeItem("todos");
     }
+  });
+
+  function loadSwitchState() {
+    const savedState = localStorage.getItem("saveTodosEnabled");
+    document.getElementById("save-todos").checked = savedState === "true";
   }
 
   // Add click listeners to existing tasks
@@ -474,9 +524,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   customQuoteText.addEventListener("input", saveQuoteSettings);
   quoteAuthorInput.addEventListener("input", saveQuoteSettings);
-
-  loadSettings();
-  loadQuoteSettings();
-  checkTimerChoice();
-  fetchCatImg();
 });
