@@ -588,7 +588,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function toggleMinimalMode(event) {
     const isMinimal = event.target.checked;
     const containersToHide = document.querySelectorAll(
-      "#left-container, #right-container, #settings-container"
+      "#left-container, #right-container, #settings-container, #header"
     );
 
     containersToHide.forEach((container) => {
@@ -614,7 +614,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     if (minimalMode) {
       const containersToHide = document.querySelectorAll(
-        "#left-container, #right-container, #settings-container"
+        "#left-container, #right-container, #settings-container, #header"
       );
       containersToHide.forEach((container) => {
         container.style.display = "none";

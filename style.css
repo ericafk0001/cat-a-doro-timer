@@ -54,11 +54,12 @@ main {
   text-align: center;
   width: 560px;
   height: 420px;
-  border-radius: 16px;
+  border-radius: 14px;
   background: #212121;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.63);
   z-index: 1000;
   opacity: 0;
+  overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
 
@@ -69,8 +70,6 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(18, 18, 18, 0.7);
-  backdrop-filter: blur(5px);
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -99,19 +98,21 @@ main {
 
 #close-settings-btn {
   position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 24px;
-  height: 24px;
+  right: 3px;
+  top: 3px;
+  width: 30px;
+  height: 30px;
   border-style: none;
-  border-radius: 100%;
-  background-color: rgb(201, 51, 31);
+  background-color: transparent;
   color: rgb(241, 241, 241);
+  font-size: 20px;
   transition: 0.2s all;
 }
 
 #close-settings-btn:hover {
   opacity: 0.5;
+  background-color: rgba(216, 67, 47, 0.959);
+  border-radius: 100%;
 }
 
 #settings-side {
