@@ -40,6 +40,7 @@ A fun, cat-themed Pomodoro timer that helps you stay productive with timed work 
 - Hover over the cat to watch it respond to your mouse, making it feel like you're interacting with a virtual pet!
 - A random cat image is fetched from TheCatAPI and displayed when you click the "Reload Cat" button.
 - Notes are stored in the browser's local storage, so they persist across sessions.
+- Almost everything is customizable, from toggling saving notes, tasks, intervals, etc.
 
 ## Built With
 
