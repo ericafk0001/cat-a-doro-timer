@@ -1,0 +1,133 @@
+:root {
+  /* Default theme (dark) */
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --accent-color: #bb86fc;
+  --error-color: #cf6679;
+  --success-color: #03dac6;
+  --warning-color: #ffb74d;
+  --surface-color: #2d2d2d;
+  --border-color: #404040;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme */
+.theme-light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #121212;
+  --text-secondary: #424242;
+  --accent-color: #6200ee;
+  --error-color: #b00020;
+  --success-color: #018786;
+  --warning-color: #f57c00;
+  --surface-color: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ...existing code... */
+
+/* Nature Themes */
+.theme-forest {
+  --bg-primary: #1b4332;
+  --bg-secondary: #2d6a4f;
+  --text-primary: #d8f3dc;
+  --text-secondary: #b7e4c7;
+  --accent-color: #95d5b2;
+  --error-color: #d62828;
+  --success-color: #40916c;
+  --warning-color: #ffb84d;
+  --surface-color: #2d6a4f;
+  --border-color: #40916c;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+.theme-ocean {
+  --bg-primary: #03045e;
+  --bg-secondary: #0077b6;
+  --text-primary: #caf0f8;
+  --text-secondary: #90e0ef;
+  --accent-color: #00b4d8;
+  --error-color: #ef476f;
+  --success-color: #48cae4;
+  --warning-color: #ffd60a;
+  --surface-color: #0077b6;
+  --border-color: #0096c7;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Gaming Themes */
+.theme-cyberpunk {
+  --bg-primary: #2b213a;
+  --bg-secondary: #3b2d4a;
+  --text-primary: #ff2a6d;
+  --text-secondary: #05d9e8;
+  --accent-color: #7700a6;
+  --error-color: #ff2a6d;
+  --success-color: #05d9e8;
+  --warning-color: #ff8c42;
+  --surface-color: #3b2d4a;
+  --border-color: #7700a6;
+  --shadow-color: rgba(255, 42, 109, 0.2);
+}
+
+.theme-retro {
+  --bg-primary: #2c2137;
+  --bg-secondary: #3f3544;
+  --text-primary: #ff6b97;
+  --text-secondary: #a5ffd6;
+  --accent-color: #84ff3c;
+  --error-color: #ff4967;
+  --success-color: #65ff00;
+  --warning-color: #ffb736;
+  --surface-color: #3f3544;
+  --border-color: #84ff3c;
+  --shadow-color: rgba(255, 107, 151, 0.2);
+}
+
+/* Seasonal Themes */
+.theme-halloween {
+  --bg-primary: #2c0735;
+  --bg-secondary: #440a67;
+  --text-primary: #ff7600;
+  --text-secondary: #93329e;
+  --accent-color: #b4009e;
+  --error-color: #ff0000;
+  --success-color: #00ff00;
+  --warning-color: #ffb300;
+  --surface-color: #440a67;
+  --border-color: #93329e;
+  --shadow-color: rgba(255, 118, 0, 0.2);
+}
+
+.theme-christmas {
+  --bg-primary: #1b4332;
+  --bg-secondary: #283618;
+  --text-primary: #e9edc9;
+  --text-secondary: #ccd5ae;
+  --accent-color: #bc4749;
+  --error-color: #e63946;
+  --success-color: #95d5b2;
+  --warning-color: #ffb700;
+  --surface-color: #283618;
+  --border-color: #bc4749;
+  --shadow-color: rgba(188, 71, 73, 0.2);
+}
+
+/* Accessibility Themes */
+.theme-high-contrast {
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #ffff00;
+  --accent-color: #00ff00;
+  --error-color: #ff0000;
+  --success-color: #00ff00;
+  --warning-color: #ffff00;
+  --surface-color: #1a1a1a;
+  --border-color: #ffffff;
+  --shadow-color: rgba(255, 255, 255, 0.3);
+}
