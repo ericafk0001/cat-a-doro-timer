@@ -138,7 +138,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
       "theme-synthwave",
       "theme-forest",
       "theme-ocean",
-      "theme-highcontrast"
+      "theme-highcontrast",
+      "theme-sakura"
     );
 
     if (themeName !== "default") {
