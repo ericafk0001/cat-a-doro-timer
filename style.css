@@ -10,7 +10,7 @@
 
 body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  background-color: #121212;
+  background-color: var(--bg-primary);
   height: 100%;
   width: 100%;
   color: white;
@@ -32,7 +32,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000;
+  background-color: var(--loader-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +55,7 @@ main {
   width: 560px;
   height: 420px;
   border-radius: 14px;
-  background: #212121;
+  background: var(--bg-secondary);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.63);
   z-index: 1000;
   opacity: 0;
@@ -104,7 +104,7 @@ main {
   height: 30px;
   border-style: none;
   background-color: transparent;
-  color: rgb(241, 241, 241);
+  color: var(--text-primary);
   font-size: 20px;
   transition: 0.2s all;
 }
@@ -121,7 +121,7 @@ main {
   position: absolute;
   left: 0;
   height: 100%;
-  background-color: #282828;
+  background-color: var(--surface-color);
   transition: all 0.3s ease-in-out;
 }
 
@@ -130,7 +130,7 @@ main {
   border-bottom: 3px solid transparent;
   border-radius: 0;
   padding: 20px;
-  color: white;
+  color: var(--text-primary);
   background-color: transparent;
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -138,7 +138,7 @@ main {
 }
 
 #settings-side button:hover {
-  border-bottom: 3px solid #575757;
+  border-bottom: 3px solid var(--accent-color);
 }
 
 #settings-side button:active {
@@ -165,8 +165,8 @@ main {
 .settings-dropdown {
   padding: 8px;
   border-radius: 5px;
-  background: black;
-  color: white;
+  background: var(--dropdown-bg);
+  color: var(--text-primary);
   border: 1px solid rgba(255, 255, 255, 0.233);
 }
 
@@ -236,7 +236,7 @@ input {
 }
 
 #left-todo {
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   margin-left: 15px;
   border-radius: 16px;
   margin-top: 20px;
@@ -248,7 +248,7 @@ input {
 }
 
 #left-notes {
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   margin-left: 15px;
   border-radius: 16px;
   margin-top: 20px;
@@ -267,7 +267,7 @@ input {
   flex: 1;
   color: #fff;
   font-size: 0.9rem;
-  background-color: #3f3f3f;
+  background-color: var(--input-color);
   padding-inline: 0.5em;
   padding-block: 0.7em;
   border: none;
@@ -290,7 +290,7 @@ input {
 #cat-petter {
   text-align: center;
   margin-right: 15px;
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   border-radius: 16px;
   margin-top: 20px;
   padding: 8px;
@@ -303,7 +303,7 @@ input {
 #cat-random {
   text-align: center;
   margin-right: 15px;
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   border-radius: 16px;
   margin-top: 20px;
   padding: 8px;
@@ -330,14 +330,14 @@ input {
 #time-tracker {
   text-align: center;
   margin-right: 15px;
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   border-radius: 16px;
   margin-top: 20px;
   padding: 30px 8px;
 }
 
 .task {
-  background-color: #575757;
+  background-color: var(--accent-color);
   margin-top: 5px;
   border-radius: 5px;
   padding: 10px 5px;
@@ -383,7 +383,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   box-sizing: border-box;
   box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
   padding: 0.25rem;
@@ -408,12 +408,12 @@ input {
   border-radius: 0.5rem;
   border: none;
   padding: 0.5rem 0;
-  color: rgb(255, 255, 255);
+  color: var(--text-primary);
   transition: all 0.15s ease-in-out;
 }
 
 .radio-inputs .radio input:checked + .name {
-  background-color: #3f3f3f;
+  background-color: var(--input-color);
   font-weight: 600;
 }
 
@@ -422,7 +422,7 @@ input {
   margin-top: 0.5em;
   font-family: "Rubik", sans-serif;
   font-size: 6rem;
-  color: #e4e5e6;
+  color: var(--text-primary);
 }
 
 #quote {
@@ -432,14 +432,14 @@ input {
 #start {
   position: relative;
   padding: 12px 35px;
-  background: #fec195;
+  background: var(--accent-color-2);
   font-size: 17px;
   font-weight: 500;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   color: #181818;
-  border: 3px solid #fec195;
+  border: 3px solid var(--accent-color-2);
   border-radius: 8px;
-  box-shadow: 0 0 0 #fec1958c;
+  box-shadow: 0 0 0 var(--accent-color-2);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -451,8 +451,8 @@ input {
 
 #start:hover {
   background: transparent;
-  color: #fec195;
-  box-shadow: 0 0 25px #fec1958c;
+  color: var(--accent-color-2);
+  box-shadow: 0 0 25px var(--accent-color-2);
 }
 
 #start:hover .star-1 {
@@ -607,7 +607,7 @@ input {
 .input {
   color: #fff;
   font-size: 0.9rem;
-  background-color: #3f3f3f;
+  background-color: var(--input-color);
   width: 100%;
   box-sizing: border-box;
   padding-inline: 0.5em;
@@ -853,7 +853,7 @@ input[type]:checked ~ span.middle {
   border: 2px solid transparent;
   border-radius: 10px;
   outline: none;
-  background-color: #3f3f3f;
+  background-color: var(--input-color);
   color: #fffffffb;
   transition: 0.5s ease;
 }
@@ -866,7 +866,7 @@ input[type]:checked ~ span.middle {
 .group input:hover {
   outline: none;
   border-color: rgba(129, 140, 248);
-  background-color: #282828;
+  background-color: var(--bg-secondary);
   box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
 }
 
