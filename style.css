@@ -314,11 +314,16 @@ input {
   overflow-y: scroll;
 }
 
-#cat-random p {
-  font-size: 1.5rem;
+#cat-random-title {
+  font-size: 1.7rem;
   font-weight: 500;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+#cat-random-subtitle {
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 #cat-image {
@@ -881,6 +886,10 @@ input[type]:checked ~ span.middle {
 
 #save-timers-div label {
   font-weight: 700;
+}
+
+#theme-selector {
+  margin-top: 8px;
 }
 
 .switch {

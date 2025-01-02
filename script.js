@@ -133,7 +133,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  //load tasks
+  function switchTheme(themeName) {
+    document.body.classList.remove(
+      "theme-synthwave",
+      "theme-forest",
+      "theme-ocean",
+      "theme-highcontrast"
+    );
+
+    if (themeName !== "default") {
+      document.body.classList.add(`theme-${themeName}`);
+    }
+
+    localStorage.setItem("selectedTheme", themeName);
+  }
+
+  function loadTheme() {
+    const savedTheme = localStorage.getItem("selectedTheme") || "default";
+    document.getElementById("theme-selector").value = savedTheme;
+    switchTheme(savedTheme);
+  }
+
+  document.getElementById("theme-selector").addEventListener("change", (e) => {
+    switchTheme(e.target.value);
+  });
+
+  //window.onload stuff
   window.addEventListener("load", () => {
     if (localStorage.getItem("saveTodosEnabled") === null) {
       localStorage.setItem("saveTodosEnabled", "true");
@@ -149,6 +174,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     checkTimerChoice();
     fetchCatImg();
     loadMinimalMode();
+    loadTheme();
 
     const todos = JSON.parse(localStorage.getItem("todos") || "[]");
     todos.forEach((todoText) => {
@@ -163,7 +189,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const loader = document.querySelector(".loader-container");
     setTimeout(() => {
       loader.classList.add("hide-loader");
-    }, 350);
+    }, 369);
   });
 
   const saveSwitch = document.getElementById("save-todos");

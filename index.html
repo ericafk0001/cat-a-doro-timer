@@ -134,7 +134,16 @@
                   <option value="springy">Springy</option>
                 </select>
               </div>
-              <p>Themes coming soon!</p>
+              <div class="setting-item">
+                <span>Theme</span>
+                <select id="theme-selector" class="settings-dropdown">
+                  <option value="default">Dark (Default)</option>
+                  <option value="synthwave">Synthwave</option>
+                  <option value="forest">Forest</option>
+                  <option value="ocean">Ocean</option>
+                  <option value="highcontrast">High Contrast</option>
+                </select>
+              </div>
             </div>
 
             <!--storage settings-->
@@ -437,7 +446,7 @@
             <img src="cat_pet.png" id="cat-placement" />
           </div>
           <div id="cat-random">
-            <p>Random Cat 😻</p>
+            <p id="cat-random-title">Random Cat 😻</p>
             <img id="cat-image" />
             <div class="button" data-tooltip="Get Cat!" id="reload-cat">
               <div class="button-wrapper">
@@ -447,6 +456,7 @@
                 </span>
               </div>
             </div>
+            <p id="cat-random-subtitle">Fetched from TheCatAPI</p>
           </div>
           <div id="time-tracker">
             <h3>Time Spent Working:</h3>
