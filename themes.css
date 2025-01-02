@@ -11,6 +11,31 @@
   --input-color: #3f3f3f;
 }
 
+.theme-dark {
+  --bg-primary: #121212;
+  --bg-secondary: #212121;
+  --surface-color: #2d2d2d;
+  --text-primary: #fcfcfc;
+  --accent-color: #575757;
+  --accent-color-2: #fec195;
+  --loader-bg: #000000;
+  --dropdown-bg: #000000;
+  --input-color: #3f3f3f;
+}
+
+/* Sakura Theme */
+.theme-sakura {
+  --bg-primary: #ebb3cf;
+  --bg-secondary: #f7c9e5;
+  --surface-color: #f1b6f3;
+  --text-primary: #ad6996;
+  --accent-color: #e9b5e5;
+  --accent-color-2: #f1ade3;
+  --loader-bg: #fcd8ff;
+  --dropdown-bg: #efb7f3;
+  --input-color: #e4b0e6;
+}
+
 /* Synthwave Theme */
 .theme-synthwave {
   --bg-primary: #2b1b2c;
@@ -39,15 +64,15 @@
 
 /* Ocean Theme */
 .theme-ocean {
-  --bg-primary: #1a374d; /* Deep Marine Blue */
-  --bg-secondary: #233d54; /* Midnight Ocean */
-  --surface-color: #406882; /* Ocean Surface */
-  --text-primary: #e7f6f2; /* Sea Foam */
-  --accent-color: #6998ab; /* Bioluminescent Blue */
-  --accent-color-2: #b1d0e0; /* Wave Crest */
-  --loader-bg: #1a374d; /* Match Primary */
-  --dropdown-bg: #1a374d; /* Match Primary */
-  --input-color: #033f66; /* Match Surface */
+  --bg-primary: #1a374d;
+  --bg-secondary: #233d54;
+  --surface-color: #406882;
+  --text-primary: #e7f6f2;
+  --accent-color: #6998ab;
+  --accent-color-2: #b1d0e0;
+  --loader-bg: #1a374d;
+  --dropdown-bg: #1a374d;
+  --input-color: #033f66;
 }
 
 /* High Contrast Theme */
