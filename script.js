@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (minutes === 0 && seconds === 0) {
       const doneSound = document.getElementById("alarm");
       clearInterval(timer);
+      doneSound.volume = 0.1;
       doneSound.play();
       return;
     }
