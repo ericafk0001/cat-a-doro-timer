@@ -70,6 +70,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     timerChoices[i].addEventListener("change", checkTimerChoice);
   }
 
+  function isDuplicateTask(value) {
+    const existingTasks = document.querySelectorAll(".task");
+    return Array.from(existingTasks).some(
+      (task) => task.textContent.toLowerCase() === value.toLowerCase()
+    );
+  }
+
   // create task
 
   document
@@ -79,14 +86,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const input = event.target;
         const value = input.value.trim();
         if (value) {
+          if (isDuplicateTask(value)) {
+            const intervalId = setInterval(() => {
+              Swal.fire({
+                icon: "warning",
+                title: "Duplicate Task",
+                text: "This task already exists!",
+                confirmButtonText: "OK",
+              }).then(() => {
+                clearInterval(intervalId);
+              });
+            }, 10);
+            return;
+          }
+
           const newTask = document.createElement("div");
           newTask.className = "task";
           newTask.textContent = value;
           newTask.addEventListener("click", deleteTask);
           document.getElementById("left-todo").appendChild(newTask);
           input.value = "";
-
-          // Deselect the input box
           input.blur();
 
           const saveEnabled = document.getElementById("save-todos").checked;
