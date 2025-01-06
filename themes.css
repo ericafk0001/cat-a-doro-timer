@@ -87,3 +87,94 @@
   --dropdown-bg: #000000;
   --input-color: #2d2d2d;
 }
+
+/* Matcha Theme */
+.theme-matcha {
+  --bg-primary: #1b4332;
+  --bg-secondary: #2d6a4f;
+  --surface-color: #40916c;
+  --text-primary: #d8f3dc;
+  --accent-color: #95d5b2;
+  --accent-color-2: #b7e4c7;
+  --loader-bg: #1b4332;
+  --dropdown-bg: #1b4332;
+  --input-color: #2d6a4f;
+}
+
+/* Sunset Theme */
+.theme-samurai {
+  --bg-primary: #370617;
+  --bg-secondary: #6a040f;
+  --surface-color: #9d0208;
+  --text-primary: #ffba08;
+  --accent-color: #dc2f02;
+  --accent-color-2: #e85d04;
+  --loader-bg: #370617;
+  --dropdown-bg: #370617;
+  --input-color: #6a040f;
+}
+
+/* Midnight Theme */
+.theme-midnight {
+  --bg-primary: #1a1b26;
+  --bg-secondary: #24283b;
+  --surface-color: #2f334d;
+  --text-primary: #c0caf5;
+  --accent-color: #bb9af7;
+  --accent-color-2: #9d7cd8;
+  --loader-bg: #1a1b26;
+  --dropdown-bg: #1a1b26;
+  --input-color: #24283b;
+}
+
+/* Coffee Theme */
+.theme-coffee {
+  --bg-primary: #2f1810;
+  --bg-secondary: #4a2511;
+  --surface-color: #6b3e26;
+  --text-primary: #e6ccb2;
+  --accent-color: #9b6b4e;
+  --accent-color-2: #b08968;
+  --loader-bg: #2f1810;
+  --dropdown-bg: #2f1810;
+  --input-color: #4a2511;
+}
+
+/* Lavender Theme */
+.theme-lavender {
+  --bg-primary: #7c5295;
+  --bg-secondary: #9066a6;
+  --surface-color: #a87bb7;
+  --text-primary: #f2e6f9;
+  --accent-color: #c190d4;
+  --accent-color-2: #d4a5e5;
+  --loader-bg: #7c5295;
+  --dropdown-bg: #7c5295;
+  --input-color: #9066a6;
+}
+
+/* blackout Theme */
+.theme-blackout {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --surface-color: #141414;
+  --text-primary: #919191;
+  --accent-color: #2e2e2e;
+  --accent-color-2: #161616;
+  --loader-bg: #000000;
+  --dropdown-bg: #000000;
+  --input-color: #0a0a0a;
+}
+
+/* matrix Theme */
+.theme-matrix {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --surface-color: #141414;
+  --text-primary: #26bd00;
+  --accent-color: #333333;
+  --accent-color-2: #404040;
+  --loader-bg: #000000;
+  --dropdown-bg: #000000;
+  --input-color: #0a0a0a;
+}

@@ -140,7 +140,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
       "theme-forest",
       "theme-ocean",
       "theme-highcontrast",
-      "theme-sakura"
+      "theme-sakura",
+      "theme-matcha",
+      "theme-samurai",
+      "theme-midnight",
+      "theme-coffee",
+      "theme-lavender",
+      "theme-blackout",
+      "theme-matrix"
     );
 
     if (themeName !== "default") {
