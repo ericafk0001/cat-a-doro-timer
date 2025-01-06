@@ -49,8 +49,8 @@ A fun, cat-themed Pomodoro timer that helps you stay productive with timed work 
 
 ## Features to Add
 
-- Themes
 - Even more settings!
+- More cats!
 
 ## License
 
@@ -59,3 +59,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Music player credits to 3kh0
+
+SFX by Eric Matyas
+
+www.soundimage.org
