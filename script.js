@@ -203,6 +203,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     fetchCatImg();
     loadMinimalMode();
     loadTheme();
+    checkScreenWidth();
 
     const todos = JSON.parse(localStorage.getItem("todos") || "[]");
     todos.forEach((todoText) => {
@@ -683,4 +684,40 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   customQuoteText.addEventListener("input", saveQuoteSettings);
   quoteAuthorInput.addEventListener("input", saveQuoteSettings);
+
+  function checkScreenWidth() {
+    if (window.innerWidth <= 768) {
+      const containersToHide = document.querySelectorAll(
+        "#left-container, #right-container, #settings-container, #header, #settings-btn"
+      );
+      containersToHide.forEach((container) => {
+        container.style.display = "none";
+      });
+    } else {
+      const containersToHide = document.querySelectorAll(
+        "#left-container, #right-container, #settings-container, #header, #settings-btn"
+      );
+      containersToHide.forEach((container) => {
+        container.style.display = "block";
+      });
+    }
+  }
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 768) {
+      const containersToHide = document.querySelectorAll(
+        "#left-container, #right-container, #settings-container, #header, #settings-btn"
+      );
+      containersToHide.forEach((container) => {
+        container.style.display = "none";
+      });
+    } else {
+      const containersToHide = document.querySelectorAll(
+        "#left-container, #right-container, #settings-container, #header, #settings-btn"
+      );
+      containersToHide.forEach((container) => {
+        container.style.display = "block";
+      });
+    }
+  });
 });
