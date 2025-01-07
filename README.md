@@ -50,7 +50,7 @@ A fun, cat-themed Pomodoro timer that helps you stay productive with timed work 
 ## Features to Add
 
 - Even more settings!
-- More cats!
+- Options to upload your own music, cat images, themes, etc.
 
 ## License
 
