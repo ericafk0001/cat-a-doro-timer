@@ -9,6 +9,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   let isStarted = false;
 
+  const alarmSounds = {
+    alarm_1: "alarm_1.mp3",
+    alarm_2: "alarm_2.mp3",
+    alarm_3: "alarm_3.mp3",
+    alarm_4: "alarm_4.mp3",
+    alarm_5: "alarm_5.mp3",
+    alarm_6: "alarm_6.mp3",
+  };
+
+  function loadAlarmPreference() {
+    const savedAlarm = localStorage.getItem("selectedAlarm") || "alarm_1"; //defaults to alarm_1, the android sound
+    document.getElementById("alarm-selector").value = savedAlarm;
+  }
+
+  function changeAlarmSound(alarmId) {
+    const alarmAudio = document.getElementById("alarm");
+    alarmAudio.src = `alarms/${alarmSounds[alarmId]}`;
+    localStorage.setItem("selectedAlarm", alarmId);
+
+    // Test if audio loads
+    alarmAudio.load();
+    alarmAudio.onerror = () => console.error("Error loading audio");
+  }
+
+  function testAlarmSound(alarmId) {
+    const alarmAudio = document.getElementById("alarm");
+    alarmAudio.src = `alarms/${alarmSounds[alarmId]}`;
+    alarmAudio.volume = 0.1;
+    alarmAudio.play();
+  }
+
+  document.getElementById("alarm-selector").addEventListener("change", (e) => {
+    changeAlarmSound(e.target.value);
+    testAlarmSound(e.target.value);
+  });
+
   function updateTimer() {
     if (minutes === 0 && seconds === 0) {
       const doneSound = document.getElementById("alarm");
@@ -204,6 +240,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     loadMinimalMode();
     loadTheme();
     checkScreenWidth();
+
+    loadAlarmPreference();
+    const savedAlarm = localStorage.getItem("selectedAlarm") || "alarm_1";
+    changeAlarmSound(savedAlarm);
 
     const todos = JSON.parse(localStorage.getItem("todos") || "[]");
     todos.forEach((todoText) => {

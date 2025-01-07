@@ -28,7 +28,6 @@
       </div>
     </div>
 
-    <audio src="alarms/alarm_1.mp3" id="alarm"></audio>
     <main>
       <div id="header">
         <h1>
@@ -211,11 +210,11 @@
                   placeholder="Enter the author's name"
                 />
               </div>
+              <audio id="alarm" preload="auto"></audio>
               <div id="alarm-settings">
-                <label for="alarm-sound">Alarm Sound:</label>
-                <select id="alarm-sound" class="settings-dropdown">
-                  <!--Android, -->
-                  <option value="alarm_1">Alarm 1</option>
+                <label for="alarm-selector">Alarm Sound:</label>
+                <select id="alarm-selector" class="settings-dropdown">
+                  <option value="alarm_1">Alarm 1 (Default)</option>
                   <option value="alarm_2">Alarm 2</option>
                   <option value="alarm_3">Alarm 3</option>
                   <option value="alarm_4">Alarm 4</option>
