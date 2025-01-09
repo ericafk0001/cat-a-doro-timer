@@ -8,6 +8,9 @@ const songs = [
   { title: "Drake - One Dance", src: "music7.mp3" },
   { title: "Katy Perry - California Gurls", src: "music8.mp3" },
   { title: "ROSE & Bruno Mars - APT.", src: "music9.mp3" },
+  { title: "potsu - i'm closing my eyes", src: "music10.mp3" },
+  { title: "Kina - Can We Kiss Forever?", src: "music11.mp3" },
+  { title: "sagun - I'll Keep You Safe", src: "music12.mp3" },
 ];
 
 let currentSong = 0;
