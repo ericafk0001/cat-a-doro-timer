@@ -1,6 +1,6 @@
 # Pomodoro Cat Timer 🐈
 
-A fun, cat-themed Pomodoro timer that helps you stay productive with timed work sessions and breaks, plus cute cat images and interactive features.
+A fun, cat-themed Pomodoro timer that helps you stay productive with timed work sessions and breaks, plus cute cat images and interactive features. Did you know looking at cute animals can potentially improve concentration and focus?
 
 ## Features
 
@@ -12,6 +12,8 @@ A fun, cat-themed Pomodoro timer that helps you stay productive with timed work 
 - **Total Time Tracker**: Tracks the total time you've spent on tasks.
 - **Customizability**: Able to customize intervals, look, storage, etc.
 - **Minimal Mode**: Enabling this will let you focus on the timer itself, if you find the cats distracting.
+- **Quotes**: Have the options to see random motivational quotes or set your own custom quote.
+- **Music**: A mini music player so you can focus on your tasks.
 
 ## Demo
 
