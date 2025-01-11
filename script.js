@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   function testAlarmSound(alarmId) {
     const alarmAudio = document.getElementById("alarm");
     alarmAudio.src = `alarms/${alarmSounds[alarmId]}`;
-    alarmAudio.volume = 0.1;
+    alarmAudio.volume = 0.4;
     alarmAudio.play();
   }
 
@@ -637,8 +637,133 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const quoteAuthorInput = document.getElementById("quote-author");
   const quoteDisplay = document.getElementById("quote");
 
-  const defaultQuote =
-    "\"Your time is limited, so don't waste it living someone else's life\" - Steve Jobs";
+  const quotes = [
+    {
+      text: "Your time is limited, so don't waste it living someone else's life",
+      author: "Steve Jobs",
+    },
+    {
+      text: "The only way to do great work is to love what you do",
+      author: "Steve Jobs",
+    },
+    {
+      text: "Stay hungry, stay foolish",
+      author: "Steve Jobs",
+    },
+    {
+      text: "Innovation distinguishes between a leader and a follower",
+      author: "Steve Jobs",
+    },
+    {
+      text: "Be the change you wish to see in the world",
+      author: "Mahatma Gandhi",
+    },
+    {
+      text: "Life is what happens when you're busy making other plans",
+      author: "John Lennon",
+    },
+    {
+      text: "The future belongs to those who believe in the beauty of their dreams",
+      author: "Eleanor Roosevelt",
+    },
+    {
+      text: "Success is not final, failure is not fatal: it is the courage to continue that counts",
+      author: "Winston Churchill",
+    },
+    {
+      text: "It always seems impossible until it's done",
+      author: "Nelson Mandela",
+    },
+    {
+      text: "Happiness is not something ready made. It comes from your own actions",
+      author: "Dalai Lama",
+    },
+    {
+      text: "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment",
+      author: "Buddha",
+    },
+    {
+      text: "The journey of a thousand miles begins with one step",
+      author: "Lao Tzu",
+    },
+    {
+      text: "What lies behind us and what lies before us are tiny matters compared to what lies within us",
+      author: "Ralph Waldo Emerson",
+    },
+    {
+      text: "In the middle of every difficulty lies opportunity",
+      author: "Albert Einstein",
+    },
+    {
+      text: "The best way to predict the future is to create it",
+      author: "Peter Drucker",
+    },
+    {
+      text: "You miss 100% of the shots you don’t take",
+      author: "Wayne Gretzky",
+    },
+    {
+      text: "If you want to lift yourself up, lift up someone else",
+      author: "Booker T. Washington",
+    },
+    {
+      text: "Do what you can, with what you have, where you are",
+      author: "Theodore Roosevelt",
+    },
+    {
+      text: "The purpose of our lives is to be happy",
+      author: "Dalai Lama",
+    },
+    {
+      text: "Not everything that can be counted counts, and not everything that counts can be counted",
+      author: "Albert Einstein",
+    },
+    {
+      text: "Believe you can and you're halfway there",
+      author: "Theodore Roosevelt",
+    },
+    {
+      text: "Act as if what you do makes a difference. It does",
+      author: "William James",
+    },
+    {
+      text: "Dream big and dare to fail",
+      author: "Norman Vaughan",
+    },
+    {
+      text: "The best revenge is massive success",
+      author: "Frank Sinatra",
+    },
+    {
+      text: "Success is how high you bounce when you hit bottom",
+      author: "George S. Patton",
+    },
+    {
+      text: "Don’t count the days, make the days count",
+      author: "Muhammad Ali",
+    },
+    {
+      text: "The way to get started is to quit talking and begin doing",
+      author: "Walt Disney",
+    },
+    {
+      text: "Your limitation—it’s only your imagination",
+      author: "Anonymous",
+    },
+    {
+      text: "Great things never come from comfort zones",
+      author: "Anonymous",
+    },
+    {
+      text: "Dream it. Wish it. Do it",
+      author: "Anonymous",
+    },
+  ];
+
+  function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+  }
 
   // Load quote settings
   function loadQuoteSettings() {
@@ -650,6 +775,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       quoteAuthorInput.value = savedAuthor || "";
       updateQuoteDisplay();
     } else {
+      const defaultQuote = `"${getRandomQuote().text}" - ${
+        getRandomQuote().author
+      }`;
       quoteDisplay.textContent = defaultQuote;
     }
   }
@@ -678,7 +806,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (quote) {
       quoteDisplay.textContent = `"${quote}"${author ? ` - ${author}` : ""}`;
     } else {
-      quoteDisplay.textContent = defaultQuote;
+      const randomQuote = getRandomQuote();
+      quoteDisplay.textContent = `"${randomQuote.text}" - ${randomQuote.author}`;
     }
   }
 
