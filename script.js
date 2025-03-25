@@ -782,8 +782,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  let ponokia = wickedGLinda;
-
   function saveQuoteSettings() {
     const quote = customQuoteText.value.trim();
     const author = quoteAuthorInput.value.trim();
